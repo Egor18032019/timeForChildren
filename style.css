@@ -1,0 +1,141 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/roboto.woff2") format("woff2"), url("fonts/roboto.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/robotomedium.woff2") format("woff2"), url("fonts/robotomedium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/robotobold.woff2") format("woff2"), url("fonts/robotobold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+*::after, *::before {
+  box-sizing: border-box;
+}
+
+body{
+    background: url(https://images.unsplash.com/photo-1502790671504-542ad42d5189?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  overflow:hidden;
+}
+/* сами часы */
+.clock{
+  width:300px;
+  height:300px;
+  border:2px solid black;
+  position:relative;
+  font-weight:600;
+  border-radius:50%;
+
+  background: url(https://images.unsplash.com/photo-1477840539360-4a1d23071046?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80) no-repeat center center;
+  background-size: cover;
+
+}
+
+.clock .number {
+  position : absolute;
+  width:100%;
+  height:100%;
+  text-align:center;
+  transform:rotate(var(--rot));
+  /* переименовали для удобтсва */
+  font-size:1.6rem;
+  color:#BEBEBEBE;
+}
+
+
+.clock .number1 {--rot: 30deg; }
+.clock .number2 {--rot: 60deg; }
+.clock .number3 {--rot: 90deg; }
+.clock .number4 {--rot: 120deg; }
+.clock .number5 {--rot: 150deg; }
+.clock .number6 {--rot: 180deg; }
+.clock .number7 {--rot: 210deg; }
+.clock .number8 {--rot: 240deg; }
+.clock .number9 {--rot: 270deg; }
+.clock .number10 {--rot: 300deg; }
+.clock .number11 {--rot: 330deg; }
+.clock .number12 {--rot: 360deg; }
+
+/* основа стрелок */
+.clock .hand {
+  --rot: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  border: 1px solid rgb(48, 173, 163);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform-origin: bottom;
+  z-index: 10;
+  transform: translateX(-50%) rotate(calc(var(--rot) * 1deg));
+}
+/* Кружок черный */
+.clock::after {
+  content: '';
+  position: absolute;
+  background-color: black;
+  z-index: 11;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+/* Секундная стрелка */
+.clock .hand.second {
+  width: 3px;
+  height: 45%;
+  background-color: rgb(48, 173, 163);
+}
+/* Минутная стрелка */
+.clock .hand.minute {
+  width: 7px;
+  height: 40%;
+  background-color: black;
+}
+/* Часовая стрелка */
+.clock .hand.hour {
+  width: 10px;
+  height: 35%;
+  background-color: black;
+}
