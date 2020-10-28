@@ -36,64 +36,275 @@
 }
 
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-}
-*::after, *::before {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-body{
-    background: url(https://images.unsplash.com/photo-1502790671504-542ad42d5189?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) no-repeat center center fixed;
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background: url(https://images.unsplash.com/photo-1502790671504-542ad42d5189?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
-  overflow:hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
 }
+
 /* сами часы */
-.clock{
-  width:300px;
-  height:300px;
-  border:2px solid black;
-  position:relative;
-  font-weight:600;
-  border-radius:50%;
+.clock {
+  width: 300px;
+  height: 300px;
+  border: 2px solid black;
+  position: absolute;
+  font-weight: 600;
+  border-radius: 50%;
 
   background: url(https://images.unsplash.com/photo-1477840539360-4a1d23071046?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80) no-repeat center center;
   background-size: cover;
 
 }
 
-.clock .number {
-  position : absolute;
-  width:100%;
-  height:100%;
-  text-align:center;
-  transform:rotate(var(--rot));
-  /* переименовали для удобтсва */
-  font-size:1.6rem;
-  color:#BEBEBEBE;
+/* Кружок черный */
+.clock::after {
+  content: '';
+  position: absolute;
+  background-color: black;
+  z-index: 11;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+/* ------------------- */
+@import url('https://fonts.googleapis.com/css?family=PT+Mono');
+
+:root {
+	--yellow: #e0e239;
+	--lightorange: #d6b943;
+	--orange: #bd8e48;
+  --red: #aa3837;
+	--pink: #a02e62;
+	--purple: #57357f;
+	--blue: #244789;
+	--lightblue: #0b7cbe;
+	--darkgreen: #2a714f;
+	--lightgreen: #88b45f;
+}
+
+.wheel {
+	display: flex;
+	justify-content: center;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	border: 10px solid #fff;
+	transform: scale(2);
+	transform-origin: center center;
+	box-shadow:
+		1px 1px 2px rgba(0,0,0,0.5),
+		1px -1px 2px rgba(0,0,0,0.5),
+		-1px 1px 2px rgba(0,0,0,0.5),
+		-1px -1px 2px rgba(0,0,0,0.5);
+	background-color: var(--lightgreen);
+	background-image:
+		linear-gradient(252deg, transparent 50%, var(--pink) 50%),
+		linear-gradient(216deg, transparent 50%, var(--red) 50%),
+		linear-gradient(180deg, transparent 50%, var(--orange) 50%),
+		linear-gradient(144deg, transparent 50%, var(--lightorange) 50%),
+		linear-gradient(108deg, transparent 50%, var(--yellow) 50%),
+		linear-gradient(72deg, var(--yellow) 50%, transparent 50%);
+	position: relative;
+	cursor: pointer;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
 }
 
 
-.clock .number1 {--rot: 30deg; }
-.clock .number2 {--rot: 60deg; }
-.clock .number3 {--rot: 90deg; }
-.clock .number4 {--rot: 120deg; }
-.clock .number5 {--rot: 150deg; }
-.clock .number6 {--rot: 180deg; }
-.clock .number7 {--rot: 210deg; }
-.clock .number8 {--rot: 240deg; }
-.clock .number9 {--rot: 270deg; }
-.clock .number10 {--rot: 300deg; }
-.clock .number11 {--rot: 330deg; }
-.clock .number12 {--rot: 360deg; }
+.letters {
+	font-family: 'PT Mono', monospace;
+	font-size: 30px;
+	color: #BEBEBEBE;
+	text-shadow: 4px 0px 0px rgba(0,0,0,0.3);
+	position: relative;
+	width: 36px;
+	margin-top: -10px;
+	z-index: 100;
+}
+
+span {
+	position: absolute;
+	left: 0;
+  top: 0;
+  transform-origin: bottom center;
+  height: 150px;
+  writing-mode: tb;
+}
+
+.n1 {
+	transform: rotate(36deg);
+}
+
+.n2 {
+	transform: rotate(72deg);
+}
+
+.n3 {
+	transform: rotate(108deg);
+}
+
+.n4 {
+	transform: rotate(144deg);
+}
+
+.n5 {
+	transform: rotate(180deg);
+}
+
+.n6 {
+	transform: rotate(216deg);
+}
+
+.n7 {
+	transform: rotate(252deg);
+}
+
+.n8 {
+	transform: rotate(288deg);
+}
+
+.n9 {
+	transform: rotate(324deg);
+}
+
+.n10 {
+	transform: rotate(360deg);
+	margin-left: -15px;
+	letter-spacing: -5px;
+}
+
+/* --------------- */
+
+.clock .number {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(var(--rot));
+  /* переименовали для удобтсва */
+  font-size: 1.6rem;
+  color: #fff;
+  z-index: 11;
+}
+
+
+.clock .number1 {
+  --rot: 15deg;
+}
+
+.clock .number2 {
+  --rot: 30deg;
+}
+
+.clock .number3 {
+  --rot: 45deg;
+}
+
+.clock .number4 {
+  --rot: 60deg;
+}
+
+.clock .number5 {
+  --rot: 75deg;
+}
+
+.clock .number6 {
+  --rot: 90deg;
+}
+
+.clock .number7 {
+  --rot: 105deg;
+}
+
+.clock .number8 {
+  --rot: 130deg;
+}
+
+.clock .number9 {
+  --rot: 145deg;
+}
+
+.clock .number10 {
+  --rot: 160deg;
+}
+
+.clock .number11 {
+  --rot: 175deg;
+}
+
+.clock .number12 {
+  --rot: 180deg;
+}
+.clock .number13 {
+  --rot: 195deg;
+}
+
+.clock .number14 {
+  --rot: 210deg;
+}
+
+.clock .number15 {
+  --rot: 225deg;
+}
+
+.clock .number16 {
+  --rot: 240deg;
+}
+
+.clock .number17 {
+  --rot: 255deg;
+}
+
+.clock .number18 {
+  --rot: 270deg;
+}
+
+.clock .number19 {
+  --rot: 285deg;
+}
+
+.clock .number20 {
+  --rot: 300deg;
+}
+
+.clock .number21 {
+  --rot: 315deg;
+}
+
+.clock .number22 {
+  --rot: 330deg;
+}
+
+.clock .number23 {
+  --rot: 345deg;
+}
+
+.clock .number24 {
+  --rot: 360deg;
+}
 
 /* основа стрелок */
 .clock .hand {
@@ -108,31 +319,21 @@ body{
   z-index: 10;
   transform: translateX(-50%) rotate(calc(var(--rot) * 1deg));
 }
-/* Кружок черный */
-.clock::after {
-  content: '';
-  position: absolute;
-  background-color: black;
-  z-index: 11;
-  width: 15px;
-  height: 15px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-}
+
 /* Секундная стрелка */
 .clock .hand.second {
   width: 3px;
   height: 45%;
   background-color: rgb(48, 173, 163);
 }
+
 /* Минутная стрелка */
 .clock .hand.minute {
   width: 7px;
   height: 40%;
   background-color: black;
 }
+
 /* Часовая стрелка */
 .clock .hand.hour {
   width: 10px;
