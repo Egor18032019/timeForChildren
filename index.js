@@ -12,11 +12,11 @@ function Clock()  {
 
   const currentDate = new Date()
 
-  const secondsR = currentDate.getSeconds() / 60;
+  const secondsR = currentDate.getSeconds() / 120;
 
-  const minutesR = (secondsR + currentDate.getMinutes()) /60
+  const minutesR = (secondsR + currentDate.getMinutes()) /120
 
- const hoursR = (minutesR + currentDate.getHours())/12
+ const hoursR = (minutesR + currentDate.getHours())/24
 
  setRotation(secondHand,secondsR)
  setRotation(minuteHand,minutesR)

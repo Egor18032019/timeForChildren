@@ -91,63 +91,60 @@ body {
 @import url('https://fonts.googleapis.com/css?family=PT+Mono');
 
 :root {
-	--yellow: #e0e239;
-	--lightorange: #d6b943;
-	--orange: #bd8e48;
+  --yellow: #e0e239;
+  --lightorange: #d6b943;
+  --orange: #bd8e48;
   --red: #aa3837;
-	--pink: #a02e62;
-	--purple: #57357f;
-	--blue: #244789;
-	--lightblue: #0b7cbe;
-	--darkgreen: #2a714f;
-	--lightgreen: #88b45f;
+  --pink: #a02e62;
+  --purple: #57357f;
+  --blue: #244789;
+  --lightblue: #0b7cbe;
+  --darkgreen: #2a714f;
+  --lightgreen: #88b45f;
 }
 
 .wheel {
-	display: flex;
-	justify-content: center;
-	width: 300px;
-	height: 300px;
-	border-radius: 50%;
-	border: 10px solid #fff;
-	transform: scale(2);
-	transform-origin: center center;
-	box-shadow:
-		1px 1px 2px rgba(0,0,0,0.5),
-		1px -1px 2px rgba(0,0,0,0.5),
-		-1px 1px 2px rgba(0,0,0,0.5),
-		-1px -1px 2px rgba(0,0,0,0.5);
-	background-color: var(--lightgreen);
-	background-image:
-		linear-gradient(252deg, transparent 50%, var(--pink) 50%),
-		linear-gradient(216deg, transparent 50%, var(--red) 50%),
-		linear-gradient(180deg, transparent 50%, var(--orange) 50%),
-		linear-gradient(144deg, transparent 50%, var(--lightorange) 50%),
-		linear-gradient(108deg, transparent 50%, var(--yellow) 50%),
-		linear-gradient(72deg, var(--yellow) 50%, transparent 50%);
-	position: relative;
-	cursor: pointer;
-	-webkit-user-select: none;  /* Chrome all / Safari all */
-  -moz-user-select: none;     /* Firefox all */
-  -ms-user-select: none;      /* IE 10+ */
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  transform: scale(2);
+  transform-origin: center center;
+  box-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.5),
+    1px -1px 2px rgba(0, 0, 0, 0.5),
+    -1px 1px 2px rgba(0, 0, 0, 0.5),
+    -1px -1px 2px rgba(0, 0, 0, 0.5);
+  background-image:
+    conic-gradient(#444 0 27%, gold 0 30%, #d6b943 0 35%, red 0 40%, #d6b943 0 45%, #0af 0 50%, red 0 52%, tomato 0 77%, darkgreen 0 81%, lightgreen 0 90%, #444 0 100%);
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
   user-select: none;
 }
 
 
 .letters {
-	font-family: 'PT Mono', monospace;
-	font-size: 30px;
-	color: #BEBEBEBE;
-	text-shadow: 4px 0px 0px rgba(0,0,0,0.3);
-	position: relative;
-	width: 36px;
-	margin-top: -10px;
-	z-index: 100;
+  font-family: 'PT Mono', monospace;
+  font-size: 30px;
+  color: #BEBEBEBE;
+  text-shadow: 4px 0px 0px rgba(0, 0, 0, 0.3);
+  position: relative;
+  width: 36px;
+  margin-top: -10px;
+  z-index: 100;
 }
 
 span {
-	position: absolute;
-	left: 0;
+  position: absolute;
+  left: 0;
   top: 0;
   transform-origin: bottom center;
   height: 150px;
@@ -155,45 +152,69 @@ span {
 }
 
 .n1 {
-	transform: rotate(36deg);
+  width: 60px;
+  transform: translate(112px, -18px) rotate(-52deg);
 }
 
 .n2 {
-	transform: rotate(72deg);
+  width: 11px;
+  transform: translate(232px, 44px) rotate(-80deg);
+  font-size: 10px;
+  color: black;
 }
 
 .n3 {
-	transform: rotate(108deg);
+  width: 11px;
+  transform: translate(217px, 96px) rotate(-71deg);
+  font-size: 10px;
+  color: black;
 }
 
 .n4 {
-	transform: rotate(144deg);
+  width: 11px;
+  transform: translate(186px, 154px) rotate(-51deg);
+  font-size: 12px;
+  color: green;
 }
 
 .n5 {
-	transform: rotate(180deg);
+  width: 11px;
+  transform: translate(128px, 188px) rotate(-34deg);
+  font-size: 10px;
+  color: black;
 }
 
 .n6 {
-	transform: rotate(216deg);
+  width: 11px;
+  transform: translate(65px, 218px) rotate(-15deg);
+  font-size: 10px;
+  color: blueviolet;
 }
 
 .n7 {
-	transform: rotate(252deg);
+  width: 11px;
+  transform: translate(1px, 225px) rotate(2deg);
+  font-size: 10px;
+  color: black;
 }
 
 .n8 {
-	transform: rotate(288deg);
+  width: 11px;
+  transform: translate(18px, 136px) rotate(-45deg);
 }
 
 .n9 {
-	transform: rotate(324deg);
+  width: 11px;
+  transform: translate(30px, 3px) rotate(-75deg);
+  font-size: 10px;
+  color: #41cbe1;
 }
 
 .n10 {
-	transform: rotate(360deg);
-	margin-left: -15px;
-	letter-spacing: -5px;
+  width: 11px;
+  transform: translate(-4px, 0px) rotate(-47deg);
+  font-size: 10px;
+  color: #e141df;
 }
 
 /* --------------- */
@@ -240,24 +261,25 @@ span {
 }
 
 .clock .number8 {
-  --rot: 130deg;
+  --rot: 120deg;
 }
 
 .clock .number9 {
-  --rot: 145deg;
+  --rot: 135deg;
 }
 
 .clock .number10 {
-  --rot: 160deg;
+  --rot: 150deg;
 }
 
 .clock .number11 {
-  --rot: 175deg;
+  --rot: 165deg;
 }
 
 .clock .number12 {
   --rot: 180deg;
 }
+
 .clock .number13 {
   --rot: 195deg;
 }
